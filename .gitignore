@@ -1,7 +1,39 @@
+# Node modules
 node_modules
-build
-coverage
-.vscode
-.DS_STORE
-.env
+
+# Adonis directory for storing tmp files
 tmp
+
+# Environment variables, never commit this file
+.env
+
+# The development sqlite file
+database/development.sqlite
+database/adonis.sqlite
+
+# Exclude lock files
+yarn.lock
+package-lock.json
+
+# Exclude newrelic events
+newrelic_agent.log
+
+# DS_Store
+**/.DS_Store
+
+## Remove coverage
+.nyc_output/
+coverage/
+*.DS_Store
+
+client_secret.json
+credentials.json
+
+config/firebase.json
+docs/public/*
+
+#Intellij
+.idea
+
+#Visual Studio
+.history/

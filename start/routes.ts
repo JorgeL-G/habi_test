@@ -20,6 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
+/*
+ * Define routes for Properties
+ *
+ */
+Route.group(() => {
+  Route.get('/', 'PropertiesController.list')
+}).prefix('/properties')
