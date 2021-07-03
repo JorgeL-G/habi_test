@@ -12,7 +12,7 @@ export default class PropertiesController {
    * list
    * URL /properties
    * OPERATOR GET
-   * QUERY PARAMS ?year:number&city:string&address:string&price:number&description:string&page:number&limit:number
+   * QUERY PARAMS ?year:number&city:string&page:number&limit:number
    *
    * RETURN
    * {
@@ -32,7 +32,7 @@ export default class PropertiesController {
    *      "address": "carrera 100 #15-90",
    *      "city": "barranquilla",
    *      "price": 35000000,
-   *      "description": null
+   *      "description": null,
    *    }
    *   ]
    *  }
@@ -44,13 +44,10 @@ export default class PropertiesController {
 
     const year = ctx.request.input('year', null)
     const city = ctx.request.input('city', null)
-    const address = ctx.request.input('address', null)
-    const price = ctx.request.input('price', null)
-    const description = ctx.request.input('description', null)
 
     const page = ctx.request.input('page', 1)
     const limit = ctx.request.input('limit', 20)
 
-    return new Manager().getProperties({ year, city, address, price, description }, page, limit)
+    return new Manager().getProperties({ year, city }, page, limit)
   }
 }

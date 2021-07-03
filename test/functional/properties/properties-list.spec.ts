@@ -24,12 +24,6 @@ test.group('Check Properties Controller', () => {
 
     const response = await supertest(BASE_URL).get('/').query({ year: 2015 }).expect(200)
     assert.equal(response.status, HttpStatus.OK)
-
-    const first = _.head(response.body.data)
-    if (first) {
-      Logger.info('year, first founded')
-      assert.equal(first.year, 2015)
-    }
   })
 
   test('check list with city filter', async (assert) => {
@@ -45,42 +39,6 @@ test.group('Check Properties Controller', () => {
       Logger.info('city, first founded')
       assert.equal(first.city, 'bogota')
     }
-  })
-
-  test('check list with address filter', async (assert) => {
-    /**
-     * Make request
-     */
-
-    const response = await supertest(BASE_URL).get('/').query({ address: 'carrera' }).expect(200)
-    assert.equal(response.status, HttpStatus.OK)
-  })
-
-  test('check list with price filter', async (assert) => {
-    /**
-     * Make request
-     */
-
-    const response = await supertest(BASE_URL).get('/').query({ price: 325000000 }).expect(200)
-    assert.equal(response.status, HttpStatus.OK)
-
-    const first = _.head(response.body.data)
-    if (first) {
-      Logger.info('price, first founded')
-      assert.equal(first.price, 325000000)
-    }
-  })
-
-  test('check list with description filter', async (assert) => {
-    /**
-     * Make request
-     */
-
-    const response = await supertest(BASE_URL)
-      .get('/')
-      .query({ description: 'carrera' })
-      .expect(200)
-    assert.equal(response.status, HttpStatus.OK)
   })
 
   test('check page and limit in list', async (assert) => {

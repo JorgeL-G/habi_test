@@ -14,15 +14,6 @@ test.group('Check List Property Validator', () => {
     assert.equal(response.status, HttpStatus.UNPROCESSABLE_ENTITY)
   })
 
-  test('check validator fot price', async (assert) => {
-    /**
-     * Make request
-     */
-    const response = await supertest(BASE_URL).get('/').query({ price: 'test' }).expect(422)
-
-    assert.equal(response.status, HttpStatus.UNPROCESSABLE_ENTITY)
-  })
-
   test('check validator fot page', async (assert) => {
     /**
      * Make request

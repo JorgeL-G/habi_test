@@ -11,9 +11,6 @@ export default class ListPropertyValidator {
   public schema = schema.create({
     year: schema.number.optional([rules.range(0, 3000)]),
     city: schema.string.optional(),
-    address: schema.string.optional(),
-    price: schema.number.optional(),
-    description: schema.string.optional(),
 
     page: schema.number.optional(),
     limit: schema.number.optional(),
